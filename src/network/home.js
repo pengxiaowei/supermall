@@ -6,12 +6,32 @@ export function getHomeMultidata() {
   });
 }
 
-class http {
-  async getHomeMultidata() {
-    return await request({
-      url: "/home/multidata"
-    });
-  }
+export function getHomeGoods(type, page) {
+  return request({
+    url: "/home/data",
+    params: {
+      type,
+      page
+    }
+  });
 }
 
-export default new http();
+// class http {
+//   async getHomeMultidata() {
+//     return await request({
+//       url: "/home/multidata"
+//     });
+//   }
+
+// //   async getHomeGoods(type, page) {
+// //     return await request({
+// //       url: "/home/data",
+// //       params: {
+// //         type,
+// //         page
+// //       }
+// //     });
+// //   }
+// }
+
+// export default new http();
