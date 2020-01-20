@@ -1,4 +1,5 @@
-import { prop, modelOptions } from '@typegoose/typegoose';
+import { prop, modelOptions, Ref } from '@typegoose/typegoose';
+import { Category } from './category.model';
 
 @modelOptions({
   schemaOptions: {
@@ -10,9 +11,14 @@ import { prop, modelOptions } from '@typegoose/typegoose';
 })
 export class Good {
   @prop()
-  goods: {
-    pop: {
-      list: [{ title: string; img: string; price: number }];
-    };
-  };
+  img: string;
+
+  @prop()
+  price: number;
+
+  @prop()
+  title: string;
+
+  @prop({ ref: 'Category' })
+  category: Ref<Category>;
 }

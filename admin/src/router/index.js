@@ -3,7 +3,8 @@ import VueRouter from "vue-router";
 const Main = () => import("../views/Main");
 const GoodList = () => import("../views/good/GoodList");
 const GoodEdit = () => import("../views/good/GoodEdit");
-
+const CategoryList = () => import("../views/category/CategoryList");
+const CategoryEdit = () => import("../views/category/CategoryEdit");
 Vue.use(VueRouter);
 
 const routes = [
@@ -16,8 +17,27 @@ const routes = [
         component: GoodList
       },
       {
-        path: "goods/create",
+        path: "goods-create",
         component: GoodEdit
+      },
+      {
+        path: "goods-edit/:id",
+        component: GoodEdit,
+        props: true
+      },
+
+      {
+        path: "categories/list",
+        component: CategoryList
+      },
+      {
+        path: "categories-create",
+        component: CategoryEdit
+      },
+      {
+        path: "categories-edit/:id",
+        component: CategoryEdit,
+        props: true
       }
     ]
   }

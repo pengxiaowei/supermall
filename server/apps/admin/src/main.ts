@@ -1,11 +1,14 @@
-import { NestFactory } from '@nestjs/core';
+import { NestFactory, NestApplication } from '@nestjs/core';
 import { SwaggerModule, DocumentBuilder } from '@nestjs/swagger';
 import { AppModule } from './app.module';
 
 async function bootstrap() {
-  const app = await NestFactory.create(AppModule);
-
+  const app = await NestFactory.create<NestApplication>(AppModule);
+  app.useStaticAssets('uploads',{  //静态文件托管
+    prefix:'/uploads'
+  });
   app.enableCors();
+
   const options = new DocumentBuilder()
     .setTitle('购物街')
     .setDescription('供后台管理界面调用的服务端API')

@@ -3,8 +3,12 @@ import { DbService } from './db.service';
 import { TypegooseModule } from 'nestjs-typegoose';
 import { Good } from './models/good.model';
 import { modelOptions } from '@typegoose/typegoose';
+import { Category } from './models/category.model';
 
-const models = TypegooseModule.forFeature([Good]);
+const models = TypegooseModule.forFeature([
+  Good,
+  Category
+]);
 
 @Global()
 @Module({

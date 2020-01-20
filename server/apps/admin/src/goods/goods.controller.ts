@@ -6,6 +6,11 @@ import { ApiTags } from '@nestjs/swagger';
 
 @Crud({
   model: Good,
+  routes: {
+    find: {
+      populate: 'category',
+    },
+  },
 })
 @ApiTags('商品')
 @Controller('goods')
